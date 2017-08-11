@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>拖拽-demo</title>
+        <link rel="stylesheet" href="./styles/reset.css" />
+        <link rel="stylesheet" href="./styles/app.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="layout">
+                <div class="clearfix main-box">
+                    <div class="fleft controller-bar">
+                        <div class="title">控件库</div>
+                        <div class="controller-ui">
+                            <ul id="drag-area" class="content clearfix">
+                                <!--单行输入 data-classify="inputText-->
+                                <li data-classify="inputText" class="drag-item">单行输入</li>
+                                <li data-classify="inputTextArea" class="drag-item">多行输入</li>
+                                <li data-classify="inputNumber" class="drag-item">数字输入框</li>
+                                <li data-classify="inputRadio" class="drag-item">单选框</li>
+                                <li data-classify="inputCheckbox" class="drag-item">多选框</li>
+                                <li data-classify="inputDate" class="drag-item">日期</li>
+                                <li data-classify="inputDateRange" class="drag-item">日期区间</li>
+                                <li data-classify="inputImg" class="drag-item">图片</li>
+                                <!-- <li data-classify="inputDetailed" class="drag-item">明细</li>
+                                <li data-classify="inputStateMent" class="drag-item">说明文字</li> -->
+                                <li data-classify="inputMoney" class="drag-item">金额</li>
+                                <li data-classify="inputAttachMent" class="drag-item">附件</li>
+                                <!-- <li data-classify="inputOutterContant" class="drag-item">外部联系人</li>
+                                <li data-classify="inputContant" class="drag-item">联系人</li>
+                                <li data-classify="inputAddress" class="drag-item">地点</li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="center fleft">
+                        <div class="application app-view">
+                            <div class="title">测试应用</div>
+                            <div class="app-box">
+                                <div id="drag-container" class="display-model">
+                                    <ul class="app-list-ul clearfix" id="ibox">
+                                        <li id="drag-empty" class="drag-empty">可以从控件库拖动相应的组件进来</li>
+                                        <!-- <li data-classify="leave" class="droppingDOM item">
+                                            <div class="leave-ui-box">
+                                                <div class="leave-type clearfix">
+                                                    <div class="fleft">
+                                                        <label class="ui-label">请假类型</label>
+                                                    </div>
+                                                    <div class="leave-choose fright clearfix">
+                                                        <div class="itext fleft">请选择&nbsp;(必填)</div>
+                                                        <div class="fleft arrow-box">
+                                                            <div class="arrow-right"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="control-choose-time">
+                                                    <div class="leave-item clearfix">
+                                                        <div class="fleft">
+                                                            <label class="ui-label">开始时间</label>
+                                                        </div>
+                                                        <div class="leave-choose fright clearfix">
+                                                            <div class="itext fleft">请选择&nbsp;(必填)</div>
+                                                            <div class="fleft arrow-box">
+                                                                <div class="arrow-right"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="leave-item clearfix">
+                                                        <div class="fleft">
+                                                            <label class="ui-label">结束时间</label>
+                                                        </div>
+                                                        <div class="leave-choose fright clearfix">
+                                                            <div class="itext fleft">请选择&nbsp;(必填)</div>
+                                                            <div class="fleft arrow-box">
+                                                                <div class="arrow-right"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="leave-item clearfix">
+                                                        <div class="fleft">
+                                                            <label class="ui-label">时长</label>
+                                                        </div>
+                                                        <div class="leave-choose fright clearfix">
+                                                            <div class="choose-time">
+                                                                <span></span>
+                                                                <i>小时</i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="drag-close">
+                                                <div class="close-btn"></div>
+                                            </div>
+                                        </li>
+                                        <li data-classify="inputText" class="droppingDOM item current">
+                                            <div class="text-ui-box">
+                                                <div class="text-ms-box clearfix">
+                                                    <div class="text-state">
+                                                        <label class="ui-label">单行输入框</label>
+                                                    </div>
+                                                    <div class="text-input-wrap">
+                                                        <div class="text-format-input">
+                                                            <div class="div-input">请输入</div>
+                                                            <input type="text" class="text-input" placeholder="请输入"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="drag-close">
+                                                <div class="close-btn"></div>
+                                            </div>
+                                        </li>
+                                        <li data-classify="inputTextArea" class="droppingDOM item">
+                                            <div class="textarea-ui-box">
+                                                <div class="textarea-ms-box clearfix">
+                                                    <div class="textarea-state">
+                                                        <label class="ui-label">多行输入框</label>
+                                                    </div>
+                                                    <div class="textarea-input-wrap">
+                                                        <div class="textarea-format-input">
+                                                            <div class="div-textarea">请输入</div>
+                                                            <textarea class="textarea-input" placeholder="请输入"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="drag-close">
+                                                <div class="close-btn"></div>
+                                            </div>
+                                        </li>
+                                        <li data-classify="inputNumber" class="droppingDOM item">
+                                            <div class="num-ui-box clearfix">
+                                                <div class="num-label">
+                                                    <label class="ui-label">数字输入框</label>
+                                                </div>
+                                                <div class="num-input-area">
+                                                    <div class="div-input">请输入</div>
+                                                </div>
+                                            </div>
+                                            <div class="drag-close">
+                                                <div class="close-btn"></div>
+                                            </div>
+                                        </li>
+                                        <li data-classify="inputRadio" class="droppingDOM item">
+                                            <div class="radio-ui-box clearfix">
+                                                <div class="radio-label">
+                                                    <label class="ui-label">单选框</label>
+                                                </div>
+                                                <div class="radio-input-area clearfix">
+                                                    <div class="radio-choose fright clearfix">
+                                                        <div class="itext fleft">请选择&nbsp;</div>
+                                                        <div class="fleft arrow-box">
+                                                            <div class="arrow-right"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="drag-close">
+                                                <div class="close-btn"></div>
+                                            </div>
+                                        </li>
+                                        <li data-classify="inputCheckbox" class="droppingDOM item">
+                                            <div class="checkbox-ui-box clearfix">
+                                                <div class="checkbox-label">
+                                                    <label class="ui-label">多选框</label>
+                                                </div>
+                                                <div class="checkbox-input-area clearfix">
+                                                    <div class="checkbox-choose fright clearfix">
+                                                        <div class="itext fleft">请选择&nbsp;</div>
+                                                        <div class="fleft arrow-box">
+                                                            <div class="arrow-right"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="drag-close">
+                                                <div class="close-btn"></div>
+                                            </div>
+                                        </li>
+                                        <li data-classify="inputDate" class="droppingDOM item">
+                                            <div class="date-ui-box clearfix">
+                                                <div class="date-label">
+                                                    <label class="ui-label">日期</label>
+                                                </div>
+                                                <div class="date-input-area clearfix">
+                                                    <div class="date-choose fright clearfix">
+                                                        <div class="itext fleft">请选择&nbsp;</div>
+                                                        <div class="fleft arrow-box">
+                                                            <div class="arrow-right"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="drag-close">
+                                                <div class="close-btn"></div>
+                                            </div>
+                                        </li>
+                                        <li data-classify="inputDateRange" class="droppingDOM item">
+                                            <div class="dateRange-ui-box clearfix">
+                                                <div class="dateRange-label none">
+                                                    <label class="ui-label">日期区间</label>
+                                                </div>
+                                                <div class="dateRange-display">
+                                                    <div class="dateRange-item">
+                                                        <div class="dateRange-label">
+                                                            <label class="ui-label">开始时间</label>
+                                                        </div>
+                                                        <div class="dateRange-input-area clearfix">
+                                                            <div class="dateRange-choose fright clearfix">
+                                                                <div class="itext fleft">请选择&nbsp;</div>
+                                                                <div class="fleft arrow-box">
+                                                                    <div class="arrow-right"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="dateRange-item">
+                                                        <div class="dateRange-label">
+                                                            <label class="ui-label">结束时间</label>
+                                                        </div>
+                                                        <div class="dateRange-input-area clearfix">
+                                                            <div class="dateRange-choose fright clearfix">
+                                                                <div class="itext fleft">请选择&nbsp;</div>
+                                                                <div class="fleft arrow-box">
+                                                                    <div class="arrow-right"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="drag-close">
+                                                <div class="close-btn"></div>
+                                            </div>
+                                        </li>
+                                        <li data-classify="inputImg" class="droppingDOM item">
+                                            <div class="img-ui-box clearfix">
+                                                <div class="img-label">
+                                                    <label class="ui-label">图片</label>
+                                                </div>
+                                                <div class="img-input-area clearfix">
+                                                    <div class="img-choose fright clearfix">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="drag-close">
+                                                <div class="close-btn"></div>
+                                            </div>
+                                        </li>
+                                        <li data-classify="inputAttachMent" class="droppingDOM item">
+                                            <div class="attachMent-ui-box clearfix">
+                                                <div class="attachMent-label">
+                                                    <label class="ui-label">附件</label>
+                                                </div>
+                                                <div class="attachMent-input-area clearfix">
+                                                    <div class="attachMent-choose fright clearfix">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="drag-close">
+                                                <div class="close-btn"></div>
+                                            </div>
+                                        </li>
+                                        <li data-classify="inputMoney" class="droppingDOM item">
+                                            <div class="money-ui-box clearfix">
+                                                <div class="money-label">
+                                                    <label class="ui-label">金额（元）</label>
+                                                </div>
+                                                <div class="money-input-area">
+                                                    <div class="div-input">请输入</div>
+                                                </div>
+                                            </div>
+                                            <div class="drag-close">
+                                                <div class="close-btn"></div>
+                                            </div>
+                                        </li> -->
+                                    </ul>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fright">
+                        <div class="setting">
+                            <div id="btn-grups" class="btn-group fright setting-btns">
+                                <a id="preview" class="btn btn-default" href="javascript:void(0);">预览</a>
+                                <a id="formSettingSave" class="btn btn-default" href="javascript:void(0);">保存</a>
+                                <a id="formSettingSaveUse" class="btn btn-default current" href="javascript:void(0);">保存并启用</a>
+                            </div>
+                            <div class="setting-tabs tabs">
+                                <div class="tab-header">
+                                    <div class="toper clearfix">
+                                        <div class="item fleft current">控件设置</div>
+                                        <div class="item fleft">表单设置</div>
+                                    </div>
+                                </div>
+                                <div class="tab-body">
+                                    <div class="tab-content">
+                                        <div id="controlSettingBox" class="item current">
+                                            <div class="form-control">
+                                                <div class="from-text">
+                                                    <span class="thumb-size">标题</span>
+                                                    <i class="tips">最多10个字</i>
+                                                </div>
+                                                <div class="input-div">
+                                                    <input data-max-len="10" type="text" class="form-input" value="图片"/>
+                                                </div>
+                                                <div class="from-text"><i class="tips">图片最多可添加9张</i></div>
+                                            </div>
+                                            <div class="form-control">
+                                                <div class="from-text">
+                                                    <span class="thumb-size">验证</span>
+                                                </div>
+                                                <div class="input-div">
+                                                    <label class="form-label">
+                                                        <input type="checkbox" class="form-ckbox"/>
+                                                        <span class="statement">必填</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
+        <script src="./scripts/jquery.ui.js" type="text/javascript"></script>
+        <!-- <script src="./scripts/bootstrap.min.js" type="text/javascript"></script>
+        <script src="./scripts/leipi.form.build.core.js" type="text/javascript"></script>
+        <script src="./scripts/leipi.form.build.plugins.js" type="text/javascript"></script> -->
+        <script src="./scripts/app.js" type="text/javascript"></script>
+    </body>
+</html>
